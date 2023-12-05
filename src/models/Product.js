@@ -1,5 +1,9 @@
 const {DataTypes} = require(' sequelize');
 
+
+// Definicion principal de las caracteristicas del producto 
+// se define  id, nombre del producto,precio, imagen
+
 modele.exports = (sequelize) =>{
     sequelize.define(product, {
         id: {
