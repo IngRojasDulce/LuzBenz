@@ -2,6 +2,7 @@ const express = require("express")
 const morgan = require("morgan")
 const indexRouter= require('./routers/indexRouter')
 const cors = require('cors');
+require('./db.js');
 const app = express();
 
 app.use(morgan("dev"));

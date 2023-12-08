@@ -1,11 +1,7 @@
-const {DataTypes} = require(' sequelize');
+const { DataTypes } = require('sequelize');
 
-
-// Definicion principal de las caracteristicas del producto 
-// se define  id, nombre del producto,precio, imagen
-
-modele.exports = (sequelize) =>{
-    sequelize.define(product, {
+module.exports = (sequelize) => {
+    sequelize.define('Product', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -13,10 +9,10 @@ modele.exports = (sequelize) =>{
             primaryKey: true
         },
         name: {
-            type: DataTypes.STRINGS,
+            type: DataTypes.STRING,
             allowNull: false
         },
-          price: {
+        price: {
             type: DataTypes.FLOAT,
             allowNull: false,
         },
@@ -24,7 +20,5 @@ modele.exports = (sequelize) =>{
             type: DataTypes.TEXT,
             allowNull: false,
         },
-
-
-    }, { timestamps: false, freezeTableName: true })
-}
+    }, { timestamps: false, freezeTableName: true });
+};
