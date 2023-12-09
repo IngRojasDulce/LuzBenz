@@ -5,11 +5,20 @@ const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,DB_NAME,DB_PORT
 } = process.env;
-console.log(DB_NAME);
+console.log( DB_USER, DB_PASSWORD, DB_HOST,DB_NAME,DB_PORT);
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+//    logging: false, // set to console.log to see the raw SQL queries
+//    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//     });
+
+
+
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   logging: false, 
   native: false, 
 });
+
+
 
 
 const basename = path.basename(__filename);
@@ -31,10 +40,12 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
-// Para relacio;narlos hacemos un destructuring
-console.log(sequelize.models)
+// Para relacionarlos hacemos un destructuring
+const { Product, Category, } = sequelize.models;
+ console.log(sequelize.models);
+
 
 module.exports = {
-    ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');git 
-    conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
-  };
+  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');git 
+  conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+};
