@@ -14,11 +14,14 @@ const createPro = async(name,price, image, category, modelo)=>{
     
         }
       });
-      const categoryDB = await Category.findAll({
-        where: { name }
+      const categoryDB = await Category.findOrCreate({
+        where: { category },
+        default: {
+            category
+        }
         });
-        await unid.addCategory(categoryDB);
-    return(unid)
+        // await unid.addCategory(categoryDB);
+    return(categoryDB)
 }
 
 // funcion para modificar Producto
