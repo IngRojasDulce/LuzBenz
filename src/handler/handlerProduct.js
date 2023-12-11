@@ -13,7 +13,7 @@ const createProduct = async(req, res)=>{
   try {
     const  { name,price, image, category, modelo} = req.body;
     if(name && price && image && category && modelo){
-      const response = await createPro(req.body);
+      const response = await createPro(name,price, image, category, modelo);
       res.status(201).json(response);
       }
     else {
@@ -25,6 +25,10 @@ const createProduct = async(req, res)=>{
   }
 
 }
+
+// const updateProduct = ()=>{
+// console.log("modificando")
+// }
  
 module.exports = {
     getProducts, 
