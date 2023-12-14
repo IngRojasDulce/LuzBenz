@@ -1,8 +1,8 @@
 const { getAllProducts, createPro } = require("../controllers/controlllerProduct")
 
-const getProducts = (req, res)=>{
+const getProducts = async(req, res)=>{
   try {
-    const resp = getAllProducts();
+    const resp = await getAllProducts();
     res.status(200).json(resp);
   } catch (error) {
     res.status(400).json({error : error.message })
