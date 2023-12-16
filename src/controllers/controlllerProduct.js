@@ -15,31 +15,33 @@ const getAllProducts = async () => {
           // }
       }]
   }));
-  console.log(allPro);
+  const cate = await Category.findAll({
+    
+});
   return allPro;
 };
 
 // controlador encargado de crear productos y almacenar en la bd
 const createPro = async(name,price, image, category, modelo)=>{
-    const unid= await Product.findOrCreate({
+    const [newProduct, created]= await Product.findOrCreate({
         where: { name: name },
         defaults: {
-          price: price,
+          price,
           image
     
         }
       });
-      const [categoryDB, created]= await Category.findOrCreate({
+      const [categoryDB]= await Category.findOrCreate({
         where: { category },
         default: {
             category
         }
         });
-        if(!created) return("categoria existente")
-
-        console.log(categoryDB);
-          await unid.addCategory(categoryDB);
-    return(unid)
+        
+        const cate = await Category.findAll({
+          where: {category }});
+          await newProduct.setCategory(categoryDB);
+    return(cate)
 }
 
 // funcion para modificar Producto
