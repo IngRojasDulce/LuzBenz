@@ -1,4 +1,4 @@
-const { getAllProducts, createPro } = require("../controllers/controlllerProduct")
+const { getAllProducts, createPro, searchById } = require("../controllers/controlllerProduct")
 
 const getProducts = async(req, res)=>{
   try {
@@ -8,6 +8,19 @@ const getProducts = async(req, res)=>{
     res.status(400).json({error : error.message })
   } 
 }
+
+const searchId = async(req, res) =>{
+  try {
+    const{id} = req.params;
+    const resp = await  searchById(id);
+    res.status(200).json(resp);
+
+  } catch (error) {
+    res.status(400).json({error: error.message})
+    
+  }
+}
+
 
 const createProduct = async(req, res)=>{
   try {
@@ -32,5 +45,5 @@ const createProduct = async(req, res)=>{
  
 module.exports = {
     getProducts, 
-    createProduct
+    createProduct, searchId
 }

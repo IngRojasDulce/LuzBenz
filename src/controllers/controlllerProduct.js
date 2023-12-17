@@ -21,6 +21,16 @@ const getAllProducts = async () => {
   return allPro;
 };
 
+const searchById = async(id)=>{
+  const productId = await Product.findByPk(id,
+    //     {include:{
+    //     model:Category,
+    //      attributes: [id]
+    // }}
+)
+return productId
+}
+
 // controlador encargado de crear productos y almacenar en la bd
 const createPro = async(name,price, image, category, modelo)=>{
     const [newProduct, created]= await Product.findOrCreate({
@@ -53,5 +63,6 @@ console.log("Modificando productos");
 module.exports = {
     getAllProducts,
     createPro,
-    putPro
-}
+    putPro,
+    searchById
+}  
