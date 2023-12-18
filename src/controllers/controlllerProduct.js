@@ -53,6 +53,9 @@ const createPro = async(name,price, image, category, modelo)=>{
           await newProduct.setCategory(categoryDB);
     return(cate)
 }
+const searchByName = async()=>{
+
+}
 
 // funcion para modificar Producto
 const putPro =(id)=>{
@@ -64,5 +67,6 @@ module.exports = {
     getAllProducts,
     createPro,
     putPro,
-    searchById
+    searchById, 
+    searchByName
 }  

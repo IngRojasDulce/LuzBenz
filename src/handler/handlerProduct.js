@@ -1,9 +1,21 @@
-const { getAllProducts, createPro, searchById } = require("../controllers/controlllerProduct")
+const { getAllProducts, createPro, searchById, searchByName } = require("../controllers/controlllerProduct")
 
 const getProducts = async(req, res)=>{
   try {
+    const {name} = req.query
+
+    if(name){
+      const response = await searchByName(name);
+      
+      if( response) return res.status(200).json(response);
+      return res.status(200).send(" El producto no esta en inventario")
+    }
+    else{
+      
+    
     const resp = await getAllProducts();
     res.status(200).json(resp);
+  }
   } catch (error) {
     res.status(400).json({error : error.message })
   } 
