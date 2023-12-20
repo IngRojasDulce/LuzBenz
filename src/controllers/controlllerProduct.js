@@ -1,5 +1,7 @@
 
-const {Product , Category}= require("../db")
+const {Product , Category}= require("../db");
+const {Op} = require('sequelize')
+
 
 // controlador que muestra todos los productos almanacenados en la bd
 
@@ -31,6 +33,22 @@ const searchById = async(id)=>{
 return productId
 }
 
+
+// controlador para la busqueda de producto por nombre del producto
+
+const searchByName = async(name)=>{
+  const productName = await Product.findAll({
+     where: {name: {
+      [Op.iLike]: "%" + name + "%"
+    }}
+  })
+
+  return productName;
+};
+
+
+
+
 // controlador encargado de crear productos y almacenar en la bd
 const createPro = async(name,price, image, category, modelo)=>{
     const [newProduct, created]= await Product.findOrCreate({
@@ -53,9 +71,7 @@ const createPro = async(name,price, image, category, modelo)=>{
           await newProduct.setCategory(categoryDB);
     return(cate)
 }
-const searchByName = async()=>{
 
-}
 
 // funcion para modificar Producto
 const putPro =(id)=>{
@@ -68,5 +84,6 @@ module.exports = {
     createPro,
     putPro,
     searchById, 
+    searchByName,
     searchByName
 }  
