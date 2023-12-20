@@ -1,6 +1,6 @@
 
-const {Product , Category}= require("../db");
-const {Op} = require('sequelize')
+const {Product , Category, Modelo}= require("../db");
+const {Op} = require('sequelize');
 
 
 // controlador que muestra todos los productos almanacenados en la bd
@@ -59,17 +59,29 @@ const createPro = async(name,price, image, category, modelo)=>{
     
         }
       });
-      const [categoryDB]= await Category.findOrCreate({
+      // carga el modelo Categoria en caso de no estar registrado
+    const [categoryDB]= await Category.findOrCreate({
         where: { category },
         default: {
             category
         }
         });
+
+        const [modeloDB]= await Modelo.findOrCreate({
+          where: { name: modelo },
+          default: {
+              name
+          }
+          });
         
-        const cate = await Category.findAll({
+      const cate = await Category.findAll({
           where: {category }});
+      
+        
           await newProduct.setCategory(categoryDB);
-    return(cate)
+
+          await newProduct.addModelo(modeloDB)
+    return(modeloDB)
 }
 
 
