@@ -24,13 +24,20 @@ const getAllProducts = async () => {
 };
 
 const searchById = async(id)=>{
-  const productId = await Product.findByPk(id,
-    //     {include:{
-    //     model:Category,
-    //      attributes: [id]
-    // }}
-)
-return productId
+ 
+const product = await Product.findByPk(id, {
+  include: [
+    {
+      model: Category,
+      attributes: ['category'],
+    },
+    {
+      model: Modelo,
+      attributes: ['name'],
+    },
+  ],
+});
+return product
 }
 
 
