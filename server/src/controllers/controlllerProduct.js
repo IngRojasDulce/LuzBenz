@@ -22,7 +22,7 @@ const getAllProducts = async () => {
 });
   return allPro;
 };
-
+// busqueda de producto por id , retornando realcion con tablas
 const searchById = async(id)=>{
  
 const product = await Product.findByPk(id, {
