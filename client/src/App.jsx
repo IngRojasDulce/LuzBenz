@@ -6,13 +6,14 @@ import './App.css'
 import { Home } from './view/Home/home'
 import { Detail } from './view/Detail/detail'
 import { Form } from './view/Form/form'
+import { Products } from './components/Products'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
    <div>
-     
+     <Products/>
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route exact path='/detail' element={<Detail/>} />
