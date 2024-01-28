@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { productAction } from '../redux/actions/productAction'
+import styles from './Products.module.css'
+
 
 export const Products = () => {
 
@@ -18,9 +20,11 @@ export const Products = () => {
         {Array.isArray(products) && products.map((elem, i) => 
           
         (
-            <div key={i}>
-                <p>{elem.name}</p>
-                <p>{elem.category}</p>
+            <div key={elem.id} className={styles.car}>
+                <p>Nombre : {elem.name}</p>
+                <p>Categoria: {elem.Category.category}</p>
+                <p>Imagen: {elem.image}</p>
+                <p>Precio: {elem.price}</p>
             </div>
         ))}
     </div>

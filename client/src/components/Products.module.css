@@ -1,0 +1,12 @@
+.car{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 90%;
+    margin-bottom: 10px;
+    background-color: white;
+    padding-bottom: 15px;
+    border: 1px solid grey;
+}
