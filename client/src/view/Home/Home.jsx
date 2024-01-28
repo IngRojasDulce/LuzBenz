@@ -4,6 +4,6 @@ import { Products } from '../../components/Products'
 export const Home = () => {
   return (
     <div>
-      <Products></Products>home</div>
+      <Products/>home</div>
   )
 }

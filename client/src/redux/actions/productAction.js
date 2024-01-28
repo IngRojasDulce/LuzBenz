@@ -34,7 +34,7 @@
 //   };
 
 
-  import { getAllProducts } from '../slice/productData';
+import { getAllProducts } from '../slice/productData';
 import axios from 'axios';
 
 export const productAction = async (dispatch) => {
