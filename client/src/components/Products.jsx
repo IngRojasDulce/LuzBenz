@@ -5,21 +5,25 @@ import { productAction } from '../redux/actions/productAction'
 export const Products = () => {
 
     const dispatch = useDispatch();
-    const products = useSelector(state => state.products && state.products.data); 
+    const products = useSelector(state => state.products); 
     // const frontend = useSelector(state=>state)
+   
     useEffect(()=>{
       dispatch(productAction);
-  }, [dispatch]);
+  }, []);
 
+ 
   return (
     <div>
-      {products && products.map((elem, i) => (
-        <div key={i}>
-          <p>{elem.name}</p>
-          <p>{elem.Category}</p>
-        </div>
-      ))}
+        {products && products.map((elem, i) => 
+          
+        (
+            <div key={i}>
+                <p>{elem.name}</p>
+                <p>{elem.Category}</p>
+            </div>
+        ))}
     </div>
-  );
+);
 };
   
