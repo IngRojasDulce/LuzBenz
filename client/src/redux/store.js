@@ -4,6 +4,7 @@ import productData from "./slice/productData";
 export default configureStore ({
 
     reducer :{
-        products : productData
+        products : productData,
+        
     }
 })
