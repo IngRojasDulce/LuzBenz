@@ -13,6 +13,7 @@ export	const productData= createSlice({
         getAllProducts: (state, action)=>{
             state.productsAll = action.payload
         },
+        
         getById: (state,action)=>{
             state.detail= action.payload
         }
