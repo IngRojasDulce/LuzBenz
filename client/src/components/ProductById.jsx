@@ -1,16 +1,32 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { productAction, productById } from '../redux/actions/productAction'
-import styles from './Products.module.css'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { productById } from '../redux/actions/productAction';
+import styles from './Products.module.css';
+import { useParams } from 'react-router-dom';
 
 export const ProductById = () => {
-    const dispatch = useDispatch();
-    const products = useSelector(state => state.products.products);
-    useEffect(()=>{
-        dispatch(productById(fda7c467-42aa-4c17-96d8-2228ed650f33));
-    },  [dispatch]);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const product = useSelector(state => state.products.product); // Cambiado a product en singular ya que es un producto único
 
+  useEffect(() => {
+    // Disparamos la acción productById pasando el ID
+    dispatch(productById(id))
+      .then(() => {
+        console.log('Producto cargado exitosamente'); // Puedes realizar acciones adicionales aquí si es necesario
+      })
+      .catch(error => {
+        console.error('Error al cargar el producto:', error); // Manejo de errores
+      });
+  }, [dispatch, id]); // Asegúrate de incluir dispatch e id en la lista de dependencias del useEffect
+  if (!product) {
+    return <div>Cargando...</div>; // Otra lógica de carga
+  }
   return (
-    <div>{console.log(products)}</div>
-  )
-}
+    <div>
+      <h2>{product.name}</h2>
+      <p>Precio: {product.price}</p>
+      {/* Agrega el resto de la información del producto aquí */}
+    </div>
+  );
+};
