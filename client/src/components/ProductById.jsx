@@ -7,20 +7,31 @@ import { useParams } from 'react-router-dom';
 export const ProductById = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const product = useSelector(state => console.log(  " imprimiendo state: " + state.product)); 
+  const product = useSelector(state => state.products && state.products.detalle); 
  
   useEffect(() => {
     // Disparamos la acción productById pasando el ID
-    dispatch(productById(id, dispatch))
+    dispatch(productById(id))
       
-  }, [dispatch, id]); // Asegúrate de incluir dispatch e id en la lista de dependencias del useEffect
+  }, [dispatch, id]);
+  useEffect(() => {
+    console.log("Contenido del producto:", product);
+  }, [product]); //  incluir dispatch e id en la lista de dependencias del useEffect
   
   return (
-    <div>{ console.log("aqui tengo " + product+ id)
-  }
-      {/* <h2>{product.name}</h2>
-      <p>Precio: {product.price}</p>
-      Agrega el resto de la información del producto aquí */}
+    <div>
+      {product ? (
+        <>
+          <h2>{console.log("holA"+product)}</h2>
+          <p>Nombre: {product.name}</p>
+          <p>Precio: {product.price}</p>
+          <p>Imagen: {product.image}</p>
+          <p>Categoria: {product.Category.category}</p>
+          {/* Agrega el resto de la información del producto aquí */}
+        </>
+      ) : (
+        <p>Cargando...</p>
+      )}
     </div>
   );
 };

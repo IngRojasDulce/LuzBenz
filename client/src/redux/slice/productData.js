@@ -4,7 +4,7 @@ export	const productData= createSlice({
     name: "products", //Nombre del slice
     initialState: {
         productsAll: [],
-        detalle: null,
+        detalle: {},
         currentPage: 1,
         categories: [],
         cart: [],
