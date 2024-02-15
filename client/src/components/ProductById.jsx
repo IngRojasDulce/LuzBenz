@@ -22,12 +22,12 @@ export const ProductById = () => {
     <div>
       {product ? (
         <>
-          <h2>{console.log("holA"+product)}</h2>
+          
           <p>Nombre: {product.name}</p>
           <p>Precio: {product.price}</p>
           <p>Imagen: {product.image}</p>
-          <p>Categoria: {product.Category.category}</p>
-          {/* Agrega el resto de la información del producto aquí */}
+          <p>Categoria: {product.Category?.category}</p>
+          
         </>
       ) : (
         <p>Cargando...</p>
