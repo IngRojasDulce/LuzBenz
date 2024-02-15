@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 export const Form = () => {
-  async function CreateProduct (newProduct) {
-    const {name} = newProduct;
-    await axios.post('http://localhost:3001/products',newProduct)
+  async function CreateProduct(newProduct) {
+    try {
+      const { name } = newProduct;
+      await axios.post('http://localhost:3001/products', newProduct);
+      console.log("Producto creado:", name);
+    } catch (error) {
+      console.error("Error al crear el producto:", error);
+    }
   }
   function handler (event){
     setNewProduct({
