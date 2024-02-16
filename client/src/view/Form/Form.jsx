@@ -37,7 +37,47 @@ const [newProduct, setNewProduct] = useState({
             autoComplete="off"/>
             
         </label>
+        <div> 
+        <label>Precio: 
+        <input type="text"
+            value={newProduct.price}
+            name="price"
+            onChange={handler}
+            autoComplete="off"/>
+            
+        </label>
       </div>
+      <div> 
+        <label>Imagen: 
+        <input type="text"
+            value={newProduct.image}
+            name="image"
+            onChange={handler}
+            autoComplete="off"/>
+            
+        </label>
+      </div>
+      <div> 
+        <label>Categoria: 
+        <input type="text"
+            value={newProduct.category}
+            name="category"
+            onChange={handler}
+            autoComplete="off"/>
+            
+        </label>
+      </div>
+      <div> 
+        <label>Modelo: 
+        <input type="text"
+            value={newProduct.model}
+            name="model"
+            onChange={handler}
+            autoComplete="off"/>
+            
+        </label>
+      </div>
+    </div>
     </div>
   )
 }
