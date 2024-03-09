@@ -3,6 +3,10 @@ import { ProductById } from '../../components/ProductById'
 
 export const Detail = () => {
   return (
+    < div>
+      
+  
     <div><ProductById/></div>
+    </div>
   )
 }

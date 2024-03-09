@@ -7,7 +7,8 @@ import './App.css'
 import { Detail } from './view/Detail/Detail'
 import { Form } from './view/Form/form'
 import { Products } from './components/Products'
-import { Home } from './view/Home/Home'
+import { Home } from './view/Home/Home';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [count, setCount] = useState(0)
