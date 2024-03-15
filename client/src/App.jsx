@@ -9,6 +9,7 @@ import { Form } from './view/Form/form'
 import { Products } from './components/Products'
 import { Home } from './view/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   const [count, setCount] = useState(0)
