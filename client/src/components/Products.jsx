@@ -20,11 +20,16 @@ export const Products = () => {
         {Array.isArray(products) && products.map((elem, i) => 
           
         (
+            
             <div key={elem.id} className={styles.car}>
-                <p>Nombre : {elem.name}</p>
-                <p>Categoria: {elem.Category.category}</p>
-                <p>Imagen: {elem.image}</p>
-                <p>Precio: {elem.price}</p>
+                <img src={elem.image} class="card-img-top" alt="..."></img>
+                <div>
+                    <h4>{elem.name}</h4><br/>
+                    <p>Categoria: {elem.Category.category}</p>
+                
+                    {/* <p>Imagen: {elem.image} class="card-img-top"</p> */}
+                    <p>Precio: {elem.price}</p>
+                </div>
             </div>
         ))}
     </div>
