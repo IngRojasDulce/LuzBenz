@@ -16,21 +16,29 @@ export const Products = () => {
 
  
   return (
-    <div>
+    <div className="row row-cols-1 row-cols-md-3 g-4">
         {Array.isArray(products) && products.map((elem, i) => 
           
-        (
-            
-            <div key={elem.id} className={styles.car}>
-                <img src={elem.image} class="card-img-top" alt="..."></img>
-                <div>
-                    <h4>{elem.name}</h4><br/>
+        (  <div class="col">
+             <div  key={elem.id} className="card" style={{ height: '400px' }} >
+                 <img src={elem.image} className="card-img-top img-style"  alt="Producto"/>
+                 <div className="card-body" style={{ overflow: 'hidden' }}>
+                 <h4>{elem.name}</h4><br/>
                     <p>Categoria: {elem.Category.category}</p>
-                
-                    {/* <p>Imagen: {elem.image} class="card-img-top"</p> */}
                     <p>Precio: {elem.price}</p>
-                </div>
+                 </div>
+             </div>
             </div>
+            // <div key={elem.id} className="card">
+            //     <img src={elem.image} class="card-img-top" alt="Producto"></img>
+            //     <div>
+            //         <h4>{elem.name}</h4><br/>
+            //         <p>Categoria: {elem.Category.category}</p>
+                
+            //         {/* <p>Imagen: {elem.image} class="card-img-top"</p> */}
+            //         <p>Precio: {elem.price}</p>
+            //     </div>
+            // </div>
         ))}
     </div>
 );

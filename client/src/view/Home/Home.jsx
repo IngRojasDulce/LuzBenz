@@ -45,7 +45,7 @@ export const Home = () => {
 </nav>
         {/* <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">  </nav> */}
       </div>
-      <div>
+      <div className='row  --bs-card-height'>
          <Products/>home
       </div>
     
