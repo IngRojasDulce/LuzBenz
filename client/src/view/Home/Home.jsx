@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div>
       <div>
-        <nav className="navbar bg-dark navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
+        <nav className="navbar bg-dark navbar-expand-lg border-bottom border-body" style={{padding:'0'}}data-bs-theme="dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">Logo</a>
             <div><img src={logo} class="rounded img-fluid img-thumbnail miniatura-logo" alt="..."/></div>
@@ -36,16 +36,17 @@ export const Home = () => {
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
     </div>
   </div>
 </nav>
         {/* <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">  </nav> */}
       </div>
-      <div className='row  --bs-card-height'>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div className='row '>
          <Products/>home
       </div>
     
