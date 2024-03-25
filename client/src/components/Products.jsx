@@ -19,7 +19,7 @@ export const Products = () => {
     <div className="row row-cols-1 row-cols-md-3 g-4"  >
         {Array.isArray(products) && products.map((elem, i) => 
           
-        (  <div class="col">
+        (  <div className="col">
              <div  key={elem.id} className="card" style={{ height: '400px', padding:'0'}} >
                  <img src={elem.image} className="card-img-top img-style" style={{maxWidth: '100%', maxHeight: '200px' }} alt="Producto"/>
                  <div className="card-body" >

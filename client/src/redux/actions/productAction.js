@@ -28,3 +28,15 @@ export const productById = createAsyncThunk(
     }
   }
 );
+
+export const searchByName = createAsyncThunk('products/getName',
+  async(nameInput, {dispatch}) =>{
+    try {
+      const response = await axios.get(`http://localhost:3001/products/?name=${nameInput}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error al obtener el producto:", error);
+      throw error;
+    }
+  }
+)
