@@ -5,6 +5,7 @@ export	const productData= createSlice({
     initialState: {
         productsAll: [],
         detalle: {},
+        searchName:{},
         currentPage: 1,
         categories: [],
         cart: [],
@@ -16,9 +17,12 @@ export	const productData= createSlice({
         
         getById: (state,action)=>{
             state.detalle= action.payload
+        },
+        getName: (state,action)=>{
+            state.searchName = action.payload
         }
     }
 })
-export const {getAllProducts,getById}=productData.actions
+export const {getAllProducts,getById, getName}=productData.actions
 
 export default productData.reducer;

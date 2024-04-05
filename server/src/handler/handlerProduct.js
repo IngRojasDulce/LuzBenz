@@ -3,7 +3,7 @@ const { getAllProducts, createPro, searchById, searchByName } = require("../cont
 const getProducts = async(req, res)=>{
   try {
     const {name} = req.query
-
+    console.log( "Name que llega al back  " + name);
     if(name){
       const response = await searchByName(name);
       
