@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Products } from '../../components/Products'
+import React, { useState } from 'react';
+import { Products } from '../../components/Products';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
@@ -15,35 +15,34 @@ export const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Redirecciona a la ruta con el valor del input como query
-    console.log(searchValue);
+    console.log("Valor de input: " + searchValue);
     setSubmittedValue(searchValue); // Almacena el valor enviado
     setSearchValue(''); // Limpia el input después de enviarlo
   };
-  return (
 
-    
+  return (
     <div>
       <div>
-       <NavBar></NavBar>
-        {/* <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">  </nav> */}
+        <NavBar />
       </div>
       <div className='d-flex justify-content-center align-items-center div-Search'> 
-          <form className="d-flex" role="search" onSubmit={handleSubmit}>
-            <input className="form-control form-control-sm me-2" type="search" placeholder="Search" 
-            aria-label="Search" 
+        <form className="d-flex" role="search" onSubmit={handleSubmit}>
+          <input
+            className="form-control form-control-sm me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}/>
-            <button className="btn btn-outline-success btn-sm" type="submit">Search</button>
-          </form>
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <button className="btn btn-outline-success btn-sm" type="submit">Search</button>
+        </form>
       </div>
       
-      <div className='row '>
-      {submittedValue && <ProductName name={submittedValue} />}
-         <Products/>home
+      <div className='row'>
+        {submittedValue && <ProductName name={submittedValue} />}
+        <Products />
       </div>
-    
-
-     
     </div>
-  )
-}
+  );
+};

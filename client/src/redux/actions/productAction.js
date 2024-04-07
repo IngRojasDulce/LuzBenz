@@ -1,5 +1,5 @@
 
-import { getAllProducts,getById } from '../slice/productData';
+import { getAllProducts,getById, getName } from '../slice/productData';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -21,7 +21,7 @@ export const productById = createAsyncThunk(
     try {
       const response = await axios.get(`http://localhost:3001/products/${id}`);
       dispatch(getById(response.data)); // Aquí se despacha la acción getById con los datos del producto
-      return response.data;
+      return response.payload;
     } catch (error) {
       console.error("Error al obtener el producto:", error);
       throw error;
@@ -33,8 +33,9 @@ export const searchByName = createAsyncThunk('products/getName',
   async(nameInput, {dispatch}) =>{
     try {
       
-      const response = await axios.get(`http://localhost:3001/products/?name=${nameInput}`);
-      console.log("respuesta del back" + response.data);
+      const response = await axios.get(`http://localhost:3001/products/detail?name=${nameInput}`);
+      console.log("respuesta del back" , response.data);
+      dispatch(getName(response.data))
       return response.data;
     } catch (error) {
       console.error("Error al obtener el producto:", error);

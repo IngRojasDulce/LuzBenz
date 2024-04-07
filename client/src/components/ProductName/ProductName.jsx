@@ -1,44 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
 import { searchByName } from '../../redux/actions/productAction';
 
-export const ProductName = () => {
-    // const {name} = useParams();
-    // const dispatch = useDispatch();
-    // const product = useSelector(state => state.products && state.products.searchName)
+export const ProductName = ({ name }) => {
+ 
+  const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     // Disparamos la acción productById pasando el ID
-    //     dispatch(searchByName(name))
-          
-    //   }, [dispatch, name]);
-    //   useEffect(() => {
-    //     console.log("Contenido del producto:", product);
-    //   }, [product]);
-
-    const { name } = useParams();
-    const dispatch = useDispatch();
-  
-    useEffect(() => {
-      // Disparar la acción de búsqueda por nombre
+  useEffect(() => {
+    // Disparar la acción de búsqueda por nombre
+    if (name) {
       dispatch(searchByName(name));
-    }, [dispatch, name]);
-      return (
-        <div>
-          
-          {product ? (
-            <>
-              
-              <p>Nombre: {product.name}</p>
-              <p>Precio: {product.price}</p>
-              <p>Imagen: {product.image}</p>
-              <p>Categoria: {product.Category?.category}</p>
-              
-            </>
-          ) : (
-            <p>Cargando...</p>
-          )}
-        </div>
-      );
-}
+    }
+  }, [dispatch, name]);
+
+  const products = useSelector(state => state.products.searchName);
+
+  return (
+    <div>
+      {products && products.length > 0 ? (
+        products.map(product => (
+          <div key={product.id}>
+            <p>Nombre: {product.name}</p>
+            <p>Precio: {product.price}</p>
+            <img src ={product.image}></img>
+            <p>Categoría: {product.Category?.category}</p>
+          </div>
+        ))
+      ) : (
+        <p>Cargando...</p>
+      )}
+    </div>
+  );
+};

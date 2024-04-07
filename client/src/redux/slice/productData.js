@@ -5,7 +5,7 @@ export	const productData= createSlice({
     initialState: {
         productsAll: [],
         detalle: {},
-        searchName:{},
+        searchName:[],
         currentPage: 1,
         categories: [],
         cart: [],
