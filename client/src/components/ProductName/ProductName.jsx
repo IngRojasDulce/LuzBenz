@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchByName } from '../../redux/actions/productAction';
 
 export const ProductName = ({ name }) => {
+  console.log("llegada al ProductNmae" + name);
  
   const dispatch = useDispatch();
 

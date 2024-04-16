@@ -15,6 +15,7 @@ export const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Redirecciona a la ruta con el valor del input como query
+    navigate('/detail'); // Redirige al usuario a la ruta '/detail'
     console.log("Valor de input: " + searchValue);
     setSubmittedValue(searchValue); // Almacena el valor enviado
     setSearchValue(''); // Limpia el input después de enviarlo
@@ -40,7 +41,7 @@ export const Home = () => {
       </div>
       
       <div className='row'>
-        {submittedValue && <ProductName name={submittedValue} />}
+        { <ProductName name={searchValue} />}
         <Products />
       </div>
     </div>

@@ -33,7 +33,7 @@ export const searchByName = createAsyncThunk('products/getName',
   async(nameInput, {dispatch}) =>{
     try {
       
-      const response = await axios.get(`http://localhost:3001/products/detail?name=${nameInput}`);
+      const response = await axios.get(`http://localhost:3001/products/?name=${nameInput}`);
       console.log("respuesta del back" , response.data);
       dispatch(getName(response.data))
       return response.data;
