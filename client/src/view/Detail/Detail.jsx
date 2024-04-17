@@ -6,7 +6,7 @@ export const Detail = () => {
   return (
     < div>
       
-  
+  <div><ProductById/></div>
     <div><ProductName/></div>
     </div>
   )

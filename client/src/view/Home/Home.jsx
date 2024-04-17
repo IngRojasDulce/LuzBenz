@@ -41,7 +41,7 @@ export const Home = () => {
       </div>
       
       <div className='row'>
-        { <ProductName name={searchValue} />}
+        {searchValue && <ProductName name={searchValue} />}
         <Products />
       </div>
     </div>
