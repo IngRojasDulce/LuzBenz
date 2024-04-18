@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../../imagen/LuzDenz.png';
 import './navBar.css';
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
     return ( 
@@ -28,7 +29,8 @@ export const NavBar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                                <Link to ="/login" className="nav-link ">Admin</Link>
+                                
                             </li>
                         </ul>
                     </div>

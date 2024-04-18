@@ -10,6 +10,7 @@ import { Products } from './components/Products'
 import { Home } from './view/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Login } from './components/Login/Login'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/detail/:id" element={<Detail/>} />
         <Route exact path="/detail" element={<Detail/>} />
         <Route exact path='/form' element={<Form/>}/>
+        <Route exact path='/login' element={<Login/>}/>
       </Routes>
    </div>
    
