@@ -1,8 +1,29 @@
-.miniatura-logo{
+.miniatura-logo {
     width: 15%;
     height: 15%;
 }
-.div-Search{
-   margin-right: 15%; 
-   margin: 30%;
+
+.div-Search {
+    margin: 0 auto; /* Centra el elemento horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margen {
+    margin: 0; /* Elimina márgenes extra */
+    padding: 0; /* Elimina padding extra */
+}
+
+.form-control, .btn {
+    margin: 0; /* Elimina márgenes internos en los inputs y botones */
+}
+
+.form-control {
+    height: 2rem; /* Ajusta la altura según sea necesario */
+}
+
+.btn {
+    height: 2rem; /* Asegura que el botón tenga la misma altura que el input */
+    padding: 0 0.5rem; /* Ajusta el padding para el botón */
 }

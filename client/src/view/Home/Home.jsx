@@ -26,20 +26,21 @@ export const Home = () => {
       <div>
         <NavBar />
       </div>
-      <div className='d-flex justify-content-center align-items-center div-Search'> 
-        <form className="d-flex" role="search" onSubmit={handleSubmit}>
-          <input
-            className="form-control form-control-sm me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-          <button className="btn btn-outline-success btn-sm" type="submit">Search</button>
-        </form>
+      <div className='margen'>
+        <div className='div-Search'>
+          <form className="d-flex" role="search" onSubmit={handleSubmit}>
+            <input
+              className="form-control form-control-sm me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <button className="btn btn-outline-success btn-sm" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-      
       <div className='row'>
         {searchValue && <ProductName name={searchValue} />}
         <Products />

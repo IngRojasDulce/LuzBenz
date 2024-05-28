@@ -37,7 +37,7 @@ const searchId = async(req, res) =>{
 const createProduct = async(req, res)=>{
   try {
     const  { name,price, image, category, modelo} = req.body;
-
+    console.log("nombre del produto a crear : " + name);
     if(name && price && image && category && modelo){
       
       const response = await createPro(name,price, image, category, modelo);
