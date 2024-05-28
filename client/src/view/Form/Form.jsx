@@ -7,7 +7,7 @@ export const Form = () => {
     price: "",
     image: "",
     category: "",
-    model: ""
+    modelo: ""
   });
 
   async function CreateProduct() {
@@ -77,8 +77,8 @@ export const Form = () => {
         <label>Modelo:
           <input
             type="text"
-            value={newProduct.model}
-            name="model"
+            value={newProduct.modelo}
+            name="modelo"
             onChange={handler}
             autoComplete="off"
           />
