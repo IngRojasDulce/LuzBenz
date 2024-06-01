@@ -10,7 +10,23 @@ export const Form = () => {
     modelo: ""
   });
 
+  const [url_Imagen, setUrl_imagen] = useState("")
+  const changeUploadImage =async (e)=>{
+    const file = e.target.files[0];
+
+    const data =new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "Luzden")
+    const cloud_name ="dsxnjlxu5"
+    const response =await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, data )
+   console.log("aqui lo que responde cloudinary" + response.data.secure_url);
+    setUrl_imagen(response.data.secure_url);
+    setNewProduct({ ...newProduct, image: response.data.secure_url })
+  }
   async function CreateProduct() {
+    
+      
+    
     try {
       const { name } = newProduct;
       await axios.post('http://localhost:3001/products', newProduct);
@@ -26,6 +42,8 @@ export const Form = () => {
       [event.target.name]: event.target.value,
     });
   }
+
+  
 
   return (
     <div>
@@ -54,12 +72,17 @@ export const Form = () => {
       <div>
         <label>Imagen:
           <input
-            type="text"
-            value={newProduct.image}
+            type="file"
+            accept='image/*'
+            // value={newProduct.image}
             name="image"
-            onChange={handler}
+            onChange={changeUploadImage}
+            // onChange={handler}
             autoComplete="off"
           />
+          {/* {url_Imagen && (<div>
+            <img src={url_Imagen}/>
+          </div>)} */}
         </label>
       </div>
       <div>
