@@ -1,0 +1,10 @@
+.label {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: bold; /* Agregue un poco de énfasis al texto de la etiqueta */
+    justify-content: space-between;
+  }
+  .input.end{
+    text-align: right;
+  }
+ 

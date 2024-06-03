@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import style from '../Form/form.module.css'
 
 export const Form = () => {
   const [newProduct, setNewProduct] = useState({
@@ -8,7 +9,8 @@ export const Form = () => {
     image: "",
     category: "",
     modelo: ""
-  });
+  }); 
+  
 
   const [url_Imagen, setUrl_imagen] = useState("")
   const changeUploadImage =async (e)=>{
@@ -46,9 +48,12 @@ export const Form = () => {
   
 
   return (
-    <div>
-      <div>
-        <label>Nombre:
+    
+    <div >
+      <div className="row ">
+        < div className="rounded col-6 col-md-6 border border-warning">
+        <div >
+        <label className={style.label}>Nombre:
           <input
             type="text"
             value={newProduct.name}
@@ -59,7 +64,7 @@ export const Form = () => {
         </label>
       </div>
       <div>
-        <label>Precio:
+        <label className={style.label}>Precio: 
           <input
             type="text"
             value={newProduct.price}
@@ -69,8 +74,8 @@ export const Form = () => {
           />
         </label>
       </div>
-      <div>
-        <label>Imagen:
+      <div className={style.label}>
+        <label className={style.label}>Imagen: 
           <input
             type="file"
             accept='image/*'
@@ -86,7 +91,7 @@ export const Form = () => {
         </label>
       </div>
       <div>
-        <label>Categoría:
+        <label className={style.label}>Categoría:
           <input
             type="text"
             value={newProduct.category}
@@ -96,9 +101,9 @@ export const Form = () => {
           />
         </label>
       </div>
-      <div>
-        <label>Modelo:
-          <input
+      <div >
+        <label className={style.label}>Modelo: 
+          <input className={style.input.end}
             type="text"
             value={newProduct.modelo}
             name="modelo"
@@ -110,6 +115,32 @@ export const Form = () => {
       <div>
         <button type="button" onClick={CreateProduct} className="btn btn-outline-dark">Crear Producto</button>
       </div>
+        </div>
+        <div className="col-6 col-md-6">
+          {/* <div className="card" >
+          <img src={url_Imagen} className="card-img-top" alt="..."/>
+         <div className="card-body">
+       <h5 className="card-title">{newProduct.name}</h5>
+        <p className="card-title">{newProduct.category}</p> 
+    <a href="#" className="btn btn-primary">Go somewhere</a>
+  </div>
+</div> */}
+
+<div className="col">
+            <div   className="card" style={{ height: '400px', padding:'0'}} >
+                 <img src={url_Imagen} className="card-img-top img-style" style={{maxWidth: '100%', maxHeight: '200px' }} alt="Producto"/>
+                 <div className="card-body" >
+                    <h4>{newProduct.name}</h4><br/>
+                    <p>Categoria: {newProduct.category}</p>
+                    <p>Precio: {newProduct.price}</p>
+                 </div>
+             </div>
+            </div>
+</div>
+    
+      </div>
+      
+      
     </div>
   );
 };
