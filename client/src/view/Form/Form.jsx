@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import style from '../Form/form.module.css'
+import { validation } from './validation';
 
 export const Form = () => {
   const [newProduct, setNewProduct] = useState({
@@ -39,11 +40,17 @@ export const Form = () => {
   }
 
   function handler(event) {
+    const [name, value] = event.target.value
     setNewProduct({
       ...newProduct,
       [event.target.name]: event.target.value,
     });
+    validation({
+      ...newProduct,
+      [name]: value},name 
+    )
   }
+  
 
   
 

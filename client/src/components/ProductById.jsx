@@ -25,7 +25,7 @@ export const ProductById = () => {
           
           <p>Nombre: {product.name}</p>
           <p>Precio: {product.price}</p>
-          <p>Imagen: {product.image}</p>
+          <img src= {product.image}/>
           <p>Categoria: {product.Category?.category}</p>
           
         </>

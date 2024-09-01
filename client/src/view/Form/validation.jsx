@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const validation = (input, name) => { 
     
@@ -20,9 +20,9 @@ export const validation = (input, name) => {
       if(input.price!=="" || Number.isInteger(input.price))setErrors({...errors,price:""})
       else setErrors({...errors, description:"Precio debe ser un numero"})
     }
-  };
+  
 
   return (
-    <div>validation</div>
+    <div>{console.log("aqui mostrando error " + errors)}</div>
   )
 }
