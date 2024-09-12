@@ -6,10 +6,9 @@ export const Detail = () => {
   const productById= ProductById;
   const productName = ProductName
   return (
-    < div>
+    < div> 
       
-  <div><ProductById/></div>
-    <div><ProductName/></div>
+       <div><ProductName/></div>
     </div>
   )
 }
