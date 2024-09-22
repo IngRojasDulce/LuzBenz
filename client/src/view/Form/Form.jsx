@@ -28,8 +28,6 @@ export const Form = () => {
   }
   async function CreateProduct() {
     
-      
-    
     try {
       const { name } = newProduct;
       await axios.post('http://localhost:3001/products', newProduct);
