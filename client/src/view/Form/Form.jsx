@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import style from '../Form/form.module.css'
 import { validation } from './validation';
+import { Header } from '../../components/Header/Header';
 
 export const Form = () => {
   const [newProduct, setNewProduct] = useState({
@@ -54,7 +55,7 @@ export const Form = () => {
 
   return (
     
-    <div >
+    <div ><Header></Header>
       <div className="row ">
         < div className="rounded col-6 col-md-6 border border-warning">
         <div >

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { NavBar } from '../NavBar/NavBar';
 
 export const Login = () => {
   const [userAdmin, setUserAdmin] = useState({
@@ -10,18 +12,32 @@ export const Login = () => {
   });
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); 
   const navigate = useNavigate();
+
   async function SignIn(formData) {
     try {
       const { user, password } = formData;
-     const respu= await axios.post('http://localhost:3001/loginAdmin',{user, password});
-     if( respu.status==200){
-      navigate('/form');}
-     
-      // Handle successful login (e.g., redirect to another page)
+      const response = await axios.post('http://localhost:3001/loginAdmin', { user, password });
 
+      if (response.status === 200) {
+        console.log('Login successful!');
+        navigate('/dasboarAdmin'); // Redirect to form page
+      } else {
+        console.error('Login failed:', response.data.message || 'Unexpected error');
+        Swal.fire({
+          title: 'Error!',
+          text: response.data.message || 'Login failed. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+      }
     } catch (error) {
       console.error('Error during login:', error);
-      // Display an error message to the user
+      Swal.fire({
+        title: 'Error!',
+        text: 'Credenciales fallidas, intente de nuevo',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
     }
   }
 
@@ -40,6 +56,9 @@ export const Login = () => {
 
   return (
     <div>
+    <NavBar/>
+    <div>
+    
       Login
       <form onSubmit={handler}>
         <div className="mb-3">
@@ -84,6 +103,7 @@ export const Login = () => {
           Enviar
         </button>
       </form>
+    </div>
     </div>
   );
 };
