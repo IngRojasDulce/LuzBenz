@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('Modelo', {
     
     name: {
-      type: DataTypes.STRING,
+      type:DataTypes.STRING,
       allowNull: false,
     },
   },{timestamps:false, freezeTableName: true},)

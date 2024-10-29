@@ -52,6 +52,11 @@ Modelo.belongsToMany(Product, { through: 'ProModel' });
 
 Category.hasMany(Product);
 Product.belongsTo(Category);
+//Relacion productos con modelos
+
+Modelo.belongsToMany(Product, { through: 'proModel' });
+Product.belongsToMany(Modelo, { through: 'ProModel' });
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');git 
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');

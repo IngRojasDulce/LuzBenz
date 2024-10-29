@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './home.css';
 import { useDispatch } from 'react-redux';
 import { ProductName } from '../../components/ProductName/ProductName';
+import { Pagination } from '../../components/pagination/pagination';
 
 export const Home = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -44,6 +45,7 @@ export const Home = () => {
       <div className='row'>
         {searchValue && <ProductName name={searchValue} />}
         <Products />
+        <Pagination/>
       </div>
     </div>
   );

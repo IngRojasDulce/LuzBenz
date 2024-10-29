@@ -58,37 +58,39 @@ const searchByName = async(name)=>{
 
 // controlador encargado de crear productos y almacenar en la bd
 const createPro = async(name,price, image, category, modelo)=>{
-    const [newProduct, created]= await Product.findOrCreate({
-        where: { name: name },
-        defaults: {
-          price,
-          image
-    
-        }
+  const [newProduct, created]= await Product.findOrCreate({
+      where: { name: name },
+      defaults: {
+      price,
+      image
+      }
       });
       // carga el modelo Categoria en caso de no estar registrado
-    const [categoryDB]= await Category.findOrCreate({
-        where: { category },
-        default: {
-            category
+  const [categoryDB]= await Category.findOrCreate({
+    where: { category },
+      default: {
+          category
         }
         });
 
-        const [modeloDB]= await Modelo.findOrCreate({
+      const [modeloDB]= await Modelo.findOrCreate({
           where: { name: modelo },
           default: {
-              name
+              name: modelo
           }
           });
         
-      const cate = await Category.findAll({
-          where: {category }});
+      const cate = await Modelo.findAll({
+          where: {name: modelo }
+        });
       
-        
-          await newProduct.setCategory(categoryDB);
-
-          await newProduct.addModelo(modeloDB)
-    return(modeloDB)
+      await newProduct.addModelo(modeloDB)
+      await newProduct.setCategory(categoryDB)
+      
+      console.log(Modelo);
+          
+     
+    return(newProduct)
 }
 
 

@@ -7,10 +7,20 @@ export const DasboardAdmin = () => {
     <div>
         <Header/>
         <nav class="nav flex-column">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <div>
+          <div class="d-flex">
+  <div class="dropdown me-1">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+      Menu
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Crear Producto</a></li>
+      <li><a class="dropdown-item" href="#">Modificar Producto</a></li>
+      <li><a class="dropdown-item" href="#">Eliminar Producto</a></li>
+    </ul>
+  </div>
+  </div>
+        </div>
 </nav>
     </div>
   )
